@@ -23,51 +23,50 @@ matrix = '''
 
 
 def solution(grid, n=1):
-  # Break into 2d array
-  grid = grid.strip()
-  li = []
-  
-  for line in grid.split('\n'):
-    li.append([int(num) for num in line.split()])
-  
-  dim = len(li)
-  max_res = 0
-  
-  # Check all directions
-  for i in range(dim):
-    for j in range(dim - n + 1):
-      res = 1
-      for k in range(n):
-        res *= li[i][j + k]
-      if res > max_res:
-        max_res = res
-  
-  for j in range(dim):
-    for i in range(dim - n + 1):
-      res = 1
-      for k in range(n):
-        res *= li[i + k][j]
-      if res > max_res:
-        max_res = res
-  
-  for i in range(dim - n + 1):
-    for j in range(dim - n + 1):
-      res = 1
-      for k in range(n):
-        res *= li[i + k][j + k]
-      if res > max_res:
-        max_res = res
-  
-  for i in range(dim - n + 1):
-    for j in range(n - 1, dim):
-      res = 1
-      for k in range(n):
-        res *= li[i + k][j - k]
-      if res > max_res:
-        max_res = res
-  
-  return max_res
-      
-      
-print(solution(matrix, n=4))
+    # Break into 2d array
+    grid = grid.strip()
+    li = []
 
+    for line in grid.split('\n'):
+        li.append([int(num) for num in line.split()])
+
+    dim = len(li)
+    max_res = 0
+
+    # Check all directions
+    for i in range(dim):
+        for j in range(dim - n + 1):
+            res = 1
+            for k in range(n):
+                res *= li[i][j + k]
+            if res > max_res:
+                max_res = res
+
+    for j in range(dim):
+        for i in range(dim - n + 1):
+            res = 1
+            for k in range(n):
+                res *= li[i + k][j]
+            if res > max_res:
+                max_res = res
+
+    for i in range(dim - n + 1):
+        for j in range(dim - n + 1):
+            res = 1
+            for k in range(n):
+                res *= li[i + k][j + k]
+            if res > max_res:
+                max_res = res
+
+    for i in range(dim - n + 1):
+        for j in range(n - 1, dim):
+            res = 1
+            for k in range(n):
+                res *= li[i + k][j - k]
+            if res > max_res:
+                max_res = res
+
+    return max_res
+
+
+print(solution(matrix, n=4))
