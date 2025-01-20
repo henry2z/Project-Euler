@@ -15,7 +15,7 @@ def is_prime_number(n):
     return True
 
 
-def get_factors(n):
+def get_factors(n, proper=False):
     factors_front = []
     factors_behind = []
 
@@ -26,4 +26,6 @@ def get_factors(n):
     if factors_front[-1] == factors_behind[-1]:
         factors_behind.pop()
     factors_behind.reverse()
+    if proper:
+        factors_behind.pop()
     return factors_front + factors_behind
