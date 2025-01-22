@@ -29,3 +29,22 @@ def get_factors(n, proper=False):
     if proper:
         factors_behind.pop()
     return factors_front + factors_behind
+
+
+class IterPermutation:
+    def __init__(self, lst):
+        self.stack = [(lst, [])]
+
+
+    def __iter__(self):
+        return self
+    
+    
+    def __next__(self):
+        while self.stack:
+            lst, res = self.stack.pop()
+            if lst == []:
+                return res
+            for i in range(len(lst) - 1, -1, -1):
+                self.stack.append((lst[:i] + lst[i+1:], res + [lst[i]]))
+        raise StopIteration()
