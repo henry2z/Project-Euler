@@ -2,6 +2,7 @@ from math import sqrt
 
 
 def is_prime_number(n):
+    '''Checks if a number is prime.'''
     if n < 2:
         return False
     if n == 2:
@@ -16,6 +17,7 @@ def is_prime_number(n):
 
 
 def get_factors(n, proper=False):
+    '''Get all factors in a number.'''
     factors_front = []
     factors_behind = []
 
@@ -32,6 +34,7 @@ def get_factors(n, proper=False):
 
 
 class IterPermutation:
+    '''Self made permutation. You can also import from Itertools.'''
     def __init__(self, lst):
         self.stack = [(lst, [])]
 
@@ -48,3 +51,13 @@ class IterPermutation:
             for i in range(len(lst) - 1, -1, -1):
                 self.stack.append((lst[:i] + lst[i+1:], res + [lst[i]]))
         raise StopIteration()
+
+
+def is_unique(s):
+    '''Returns True if a string is unique, returns False if isn't.'''
+    lst = []
+    for char in s:
+        if char in lst:
+            return False
+        lst.append(char)
+    return True
