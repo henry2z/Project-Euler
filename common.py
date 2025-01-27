@@ -1,7 +1,7 @@
 from math import sqrt
 
 
-def is_prime_number(n):
+def is_prime(n):
     '''Checks if a number is prime.'''
     if n < 2:
         return False
@@ -33,26 +33,6 @@ def get_factors(n, proper=False):
     return factors_front + factors_behind
 
 
-class IterPermutation:
-    '''Self made permutation. You can also import from Itertools.'''
-    def __init__(self, lst):
-        self.stack = [(lst, [])]
-
-
-    def __iter__(self):
-        return self
-    
-    
-    def __next__(self):
-        while self.stack:
-            lst, res = self.stack.pop()
-            if lst == []:
-                return res
-            for i in range(len(lst) - 1, -1, -1):
-                self.stack.append((lst[:i] + lst[i+1:], res + [lst[i]]))
-        raise StopIteration()
-
-
 def is_unique(s):
     '''Returns True if a string is unique, returns False if isn't.'''
     lst = []
@@ -61,3 +41,21 @@ def is_unique(s):
             return False
         lst.append(char)
     return True
+
+
+def simplify(numerator, denominator):
+    '''Simplify a fraction.'''
+    gcd = get_gcd(numerator, denominator)
+    return numerator // gcd, denominator // gcd
+
+
+def get_gcd(a, b):
+    '''Get the greatest common divisor of the variables a and b'''
+    if a % b == 0:
+        return b
+    return get_gcd(b, a % b)
+
+
+def get_lcm(a, b):
+    '''Get the least common multiple of the variables a and b'''
+    return a * b // get_gcd(a, b)
