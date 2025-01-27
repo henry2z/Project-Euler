@@ -1,6 +1,6 @@
 def is_palindromic(num):
     num = str(num)
-    return True if num == num[::-1] else False
+    return num == num[::-1]
 
 res = 0
 for i in range(1000000):
