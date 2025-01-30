@@ -59,3 +59,10 @@ def get_gcd(a, b):
 def get_lcm(a, b):
     '''Get the least common multiple of the variables a and b'''
     return a * b // get_gcd(a, b)
+
+
+def is_pandigital(n, a, b):
+    '''Calculates if n is a through b pandigital'''
+    if sorted(str(n)) == sorted(''.join([str(num) for num in list(range(a, b + 1))])):
+        return True
+    return False
