@@ -66,3 +66,27 @@ def is_pandigital(n, a, b):
     if sorted(str(n)) == sorted(''.join([str(num) for num in list(range(a, b + 1))])):
         return True
     return False
+
+
+def get_primes(n):
+    '''Gets all primes from 1 to n'''
+    num_list = [True for i in range(n + 1)]
+    num_list[0] = num_list[1] = False
+    
+    for i in range(2, int(sqrt(n)) + 1):
+        if num_list[i]:
+            for j in range(i * i, n + 1, i):
+                num_list[j] = False
+
+    prime_numbers = []
+    for i in range(2, n + 1):
+        if num_list[i]:
+            prime_numbers.append(i)
+    return prime_numbers
+
+
+def is_triangle(n):
+    a = (-1 + sqrt(1 + 8 * n)) / 2
+    if int(a) == a:
+        return True
+    return False
