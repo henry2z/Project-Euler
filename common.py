@@ -86,7 +86,34 @@ def get_primes(n):
 
 
 def is_triangle(n):
-    a = (-1 + sqrt(1 + 8 * n)) / 2
+    '''Checks if a number is a triangle number'''
+    a = (sqrt(1 + 8 * n) - 1) / 2
     if int(a) == a:
         return True
     return False
+
+
+def is_pentagonal(n):
+    '''Checks if a number is a pentagonal number'''
+    a = (1 + sqrt(1 + 24 * n)) / 6
+    if int(a) == a:
+        return True
+    return False
+
+
+def prime_factorization(n):
+    prime_factors = []
+    
+    while n % 2 == 0:
+        prime_factors.append(2)
+        n //= 2
+    
+    i = 3
+    while i <= sqrt(n):
+        if n % i == 0:
+            prime_factors.append(i)
+            n //= i
+        else:
+            i += 2
+    
+    return prime_factors + [n]

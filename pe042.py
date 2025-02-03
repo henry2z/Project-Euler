@@ -15,10 +15,10 @@ def score(word):
 
 s = 0
 l = []
+
 for i in range(len(a)):
     if is_triangle(score(a[i])):
         s += 1
         l.append(a[i])
-print(s)
 
-# print(score('"ABLE"'))
+print(s)
