@@ -117,3 +117,14 @@ def prime_factorization(n):
             i += 2
     
     return prime_factors + [n]
+
+
+
+def same_characters(*s):
+    s = map(str, s)
+    l = []
+    for e in s:
+        if l and sorted(e) not in l:
+            return False
+        l.append(sorted(e))
+    return True
