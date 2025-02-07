@@ -102,6 +102,7 @@ def is_pentagonal(n):
 
 
 def prime_factorization(n):
+    '''Gets a number's prime factors'''
     prime_factors = []
     
     while n % 2 == 0:
@@ -121,6 +122,7 @@ def prime_factorization(n):
 
 
 def same_characters(*s):
+    '''Returns if a number has same characters'''
     s = map(str, s)
     l = []
     for e in s:
@@ -128,3 +130,9 @@ def same_characters(*s):
             return False
         l.append(sorted(e))
     return True
+
+
+def is_palindromic(num):
+    '''Returns if a number is palindromic'''
+    num = str(num)
+    return num == num[::-1]
