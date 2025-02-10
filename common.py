@@ -51,9 +51,16 @@ def simplify(numerator, denominator):
 
 def get_gcd(a, b):
     '''Get the greatest common divisor of the variables a and b'''
-    if a % b == 0:
-        return b
-    return get_gcd(b, a % b)
+    while b:
+        a, b = b, a % b
+    return a
+
+
+# def get_gcd(a, b):
+#     '''Recursion, but if a and b are very large this might return an error'''
+#     if b:
+#         return get_gcd(b, a % b)
+#     return a
 
 
 def get_lcm(a, b):
@@ -122,7 +129,6 @@ def prime_factorization(n):
 
 
 def same_characters(*s):
-    '''Returns if a number has same characters'''
     s = map(str, s)
     l = []
     for e in s:

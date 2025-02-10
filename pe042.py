@@ -2,6 +2,7 @@ from common import is_triangle
 
 f = open("pe042_words.txt")
 a = sorted(f.read().split(','))
+f.close()
 
 
 def score(word):

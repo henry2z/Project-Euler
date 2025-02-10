@@ -1,5 +1,6 @@
 f = open("pe022_names.txt")
 a = sorted(f.read().split(','))
+f.close()
 
 
 def score(name, i):

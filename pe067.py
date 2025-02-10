@@ -1,5 +1,6 @@
 f = open('pe067_triangle.txt')
 triangle = f.read()
+f.close()
 
 tri_arr = []
 for row in triangle.strip().split('\n'):
