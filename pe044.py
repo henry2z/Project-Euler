@@ -1,5 +1,10 @@
 from math import sqrt
-from common import is_pentagonal
+
+
+def is_pentagonal(n):
+    a = (1 + sqrt(1 + 24 * n)) / 6
+    return a.is_integer()
+
 
 N = 5000
 

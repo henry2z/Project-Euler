@@ -1,4 +1,11 @@
-from common import is_triangle, is_pentagonal
+from common import is_triangle
+from math import sqrt
+
+
+def is_pentagonal(n):
+    a = (1 + sqrt(1 + 24 * n)) / 6
+    return a.is_integer()
+
 
 n = 144
 while True:
